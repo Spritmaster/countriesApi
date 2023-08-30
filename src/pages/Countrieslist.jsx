@@ -28,15 +28,15 @@ const selectRegion=(e)=>{
     <div className=' max-w-[1400px] mx-[auto] px-[1.4rem] lg:px-[8rem] pt-[4.8rem] '>
       <div className='flex flex-col md:flex-row justify-between mb-[5rem]'>
       <span className='relative'>
-      <ImSearch className='absolute left-[3rem] top-[1.3rem]'/>
+      <ImSearch className='absolute left-[3rem] top-[1.3rem] dark:text-[#fff]'/>
       <input
-      className='w-[380px] lg:w-[480px] pl-[7.4rem] py-[1rem] rounded-[5px]] outline-none border-none input-shadow rounded-[5px]' 
+      className='w-[380px] lg:w-[480px] pl-[7.4rem] py-[1rem] rounded-[5px]] outline-none border-none input-shadow rounded-[5px] dark:bg-[#2B3844] dark:text-[#fff]' 
       type="text"  
       onChange={handleSearch}
       placeholder='Search for a country'/>
       </span>
       
-      <select   onChange={selectRegion}  className='input-shadow w-[200px] px-[2rem] border-none outline-none'>
+      <select   onChange={selectRegion}  className='input-shadow w-[200px] px-[2rem] border-none outline-none dark:bg-[#2B3644] dark:text-[#fff]'>
         <option value="All" >All</option>
         <option value="Africa" >Africa</option>
         <option value="America">America</option>
@@ -46,18 +46,20 @@ const selectRegion=(e)=>{
 </select>
       </div>
      
-     <div className=' h-[100vh] grid  dark:bg-[#000]   grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-[2rem] pl-[2rem]'   >
+     <div className=' h-[100vh] grid    grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-[2rem] pl-[2rem]'   >
+
+     <span className='w-[100vw] h-[100vh] dark:bg-[#202C36;] absolute left-0 top-0 z-[-1]'></span>
       {data && data.data.map((countrie)=>{
         return(
           <NavLink to={`countrie/${countrie.name.common}`} key={countrie._id}>
-        <div className='inline-block w-[26.4rem] h-[336px] bg-[#fafafa]  rounded-[5px] shadow-[0px 0px 7px 2px rgba(0, 0, 0, 0.03)] overflow-hidden list-shadow' >
+        <div className='inline-block w-[26.4rem] h-[336px] bg-[#fafafa]  rounded-[5px] shadow-[0px 0px 7px 2px rgba(0, 0, 0, 0.03)] overflow-hidden list-shadow dark:bg-[#2B3844]' >
           <img className='w-[264px] h-[160px]' src={countrie.flags.png} alt=""  />
           <div className='ml-[2.4rem]'>
-          <h1 className='mt-[2.4rem] text-[1.8rem] text-[#111517] font-extrabold leading-[1.4]'>{countrie.name.common}</h1>
+          <h1 className='mt-[2.4rem] text-[1.8rem] text-[#111517] font-extrabold leading-[1.4] dark:text-[#fff]'>{countrie.name.common}</h1>
 
-          <p className='taxt-[1.4rem] font-semibold mt-[1.6rem]'>Population: <span  className='font-[300]'>{countrie.population}</span></p>
-          <p className='taxt-[1.4rem] font-semibold mt-[0.8rem]'>Region: <span className='font-[300]'>{countrie.region}</span></p>
-          <p className='taxt-[1.4rem] font-semibold mt-[0.8rem]'>Capital: <span className='font-[300]'>{countrie.capital[0]}</span></p>
+          <p className='taxt-[1.4rem] font-semibold mt-[1.6rem] dark:text-[#fff]'>Population: <span  className='font-[300]'>{countrie.population}</span></p>
+          <p className='taxt-[1.4rem] font-semibold mt-[0.8rem] dark:text-[#fff]'>Region: <span className='font-[300]'>{countrie.region}</span></p>
+          <p className='taxt-[1.4rem] font-semibold mt-[0.8rem] dark:text-[#fff]'>Capital: <span className='font-[300]'>{countrie.capital[0]}</span></p>
           </div>
         </div>
         </NavLink>
